@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/solyador/national-league-frontend/issues"
   },
-  "homepage": "https://github.com/solyador/national-league-frontend#readme"
+  "homepage": "https://github.com/solyador/national-league-frontend#readme",
+  "devDependencies": {
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  }
 }
