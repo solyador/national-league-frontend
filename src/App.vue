@@ -1,18 +1,33 @@
-  <template>
+<template>
   <v-app>
-    <v-alert outline color="success" icon="check_circle" :value="true">
-      {{message}}
-    </v-alert>
-  </v-app>
-  </template>
+  <v-navigation-drawer app fixed></v-navigation-drawer>
+  <v-toolbar app fixed clipped-left></v-toolbar>
+  <v-content>
+    <v-container fluid fill-height>
+        <v-layout justify-center align-center>
+          {{ message }}
+        </v-layout>
+    </v-container>
+  </v-content>
+</v-app>
+</template>
 
-  <script>
+<script>
   export default {
-    data(){
+    data() {
       return {
-        message: "Adding vuetify to the app" 
-        }
+        message: 'The layout setup'
+      }
     }
-  }
-  </script>
+}
+</script>
 
+<style>
+ .content{
+    padding-left: 200px!important;
+  }
+.navigation-drawer{
+   width: 200px!important; 
+  }
+
+</style>
