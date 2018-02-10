@@ -15,7 +15,8 @@ const config = {
         contentBase: path.resolve(__dirname, 'dist/assets/media'),
         stats: 'errors-only',
         port: 4200,
-        compress: true
+        compress: true,
+        open: true
     },
     devtool: 'inline-source-map',
     plugins: [
@@ -41,25 +42,10 @@ const config = {
                 test: /\.html$/, use: ['html-loader']
             },
             {
-                test: /\.scss$/,
-                include: [path.resolve(__dirname, 'src', 'assets', 'scss')],
-                use: extractPlugin.extract({
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                sourceMap: true
-                            }
-                        },
-                        {
-                            loader: 'sass-loader',
-                            options: {
-                                sourceMap: true
-                            }
-                        }
-                    ],
-                    fallback: 'style-loader'
-                })
+                test: /\.(scss|css)$/,
+                use: [
+                        'style-loader', 'css-loader', 'sass-loader'
+                    ]
             },
             {
                 test: /\.(jpg|png|gif|svg)$/,
