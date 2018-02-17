@@ -41,7 +41,9 @@
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
+    "axios": "^0.17.1",
+    "bootswatch": "^4.0.0",
     "vue": "^2.5.13",
-    "vuetify": "^0.17.7"
+    "vue-router": "^3.0.1"
   }
 }

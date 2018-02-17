@@ -1,11 +1,10 @@
-import Vue from 'vue';
-import Vuetify from 'vuetify'
-import App from './App.vue';
-import 'vuetify/dist/vuetify.min.css'
-
-Vue.use(Vuetify)
-
+import Vue from "vue";
+import router from "./router";
+import App from "./App.vue";
+import "../node_modules/bootswatch/dist/cosmo/bootstrap.min.css";
+require("./utils/team-logo.js");
 new Vue({
-    el: '#app',
-    render: h => h(App),
+  el: "#app",
+  router,
+  render: h => h(App)
 });
