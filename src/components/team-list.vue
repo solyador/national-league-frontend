@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { HTTP } from "../utils/http-common";
+import { HTTP_TEAMS } from "../utils/http-common";
 import { TEAM_HELPER } from "../utils/team-helper";
 export default {
   data() {
@@ -46,7 +46,7 @@ export default {
     }
   },
   mounted() {
-    HTTP.get()
+    HTTP_TEAMS.get()
       .then(response => {
         this.nfl = TEAM_HELPER.getGroups(response.data._embedded.teams);
       })

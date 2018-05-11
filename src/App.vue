@@ -17,6 +17,9 @@
   <main class="jumbotron" style="margin:0">
      <router-view></router-view>
 </main>
+<aside>
+
+</aside>
 </div>
 </template>
 
@@ -29,7 +32,7 @@ export default {
       items: [
         { icon: "home", title: "Dashboard" },
         { icon: "person", title: "Teams" },
-        { icon: "home", title: "Season" },
+        { icon: "home", title: "Game" },
         { icon: "home", title: "Stats" },
         { icon: "bubble_chart", title: "Standing" }
       ]
@@ -37,7 +40,6 @@ export default {
   },
   methods: {
     navigate(item) {
-      console.log({ name: item.title });
       router.push({ name: item.title });
     }
   }
@@ -49,18 +51,15 @@ export default {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-rows: 50px auto;
+  grid-template-rows: 80px auto;
+  grid-template-columns: 200px auto;
   grid-template-areas:
-    "header"
-    "content";
-}
+    "header header"
+    "sidebar content";  
+} 
 main {
   grid-area: content;
   padding: 20px;
-}
-footer {
-  grid-area: footer;
-  background-color: #b24334;
 }
 aside {
   grid-area: sidebar;
