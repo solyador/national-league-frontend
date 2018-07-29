@@ -14,10 +14,11 @@ const config = {
   devServer: {
     contentBase: path.resolve(__dirname, "dist/assets/media"),
     stats: "errors-only",
-    port: 4200,
     compress: true,
-    open: true
-  },
+    watchOptions: {
+      poll: true
+   }
+    },
   devtool: "inline-source-map",
   plugins: [
     new CleanWebpackPlugin(["dist"]),

@@ -62,48 +62,48 @@ export default {
       } 
     },
     getTeamName(teamId) {
-    if (this.teams){
-      return this.teams[teamId - 1].name;
-    }
-    else return "not found";
-  },
-  showNextDay() { 
-    this.week = this.week + 1;
-    if (this.week < 21) {
-      this.getGames(this.week, this.currentSeason);
-    }
-    else {
-      this.week = this.week - 1;
-    }
-  },
-  showPreviousDay() {
-    this.week = this.week - 1;
-    if (this.week > 0) {
-      this.getGames(this.week, this.currentSeason);
-    }
-    else {
+      if (this.teams){
+        return this.teams[teamId - 1].name;
+      }
+      else return "not found";
+    },
+    showNextDay() { 
       this.week = this.week + 1;
+      if (this.week < 21) {
+        this.getGames(this.week, this.currentSeason);
+      }
+      else {
+        this.week = this.week - 1;
+      }
+    },
+    showPreviousDay() {
+      this.week = this.week - 1;
+      if (this.week > 0) {
+        this.getGames(this.week, this.currentSeason);
+      }
+      else {
+        this.week = this.week + 1;
+      }
+    },
+    getGames(week, currentSeason){
+      console.log(week + ' ' + currentSeason);
+      HTTP_GAME.get('/search/findAllByWeekAndSeason?weekToPlay='+ week + '&season='+ currentSeason).then(
+              response => {
+                  this.games = response.data._embedded.games;
+              }
+          )
+    },
+    simulate(){
+      if (this.week == this.weekToPlay){
+        HTTP_GAME.get('/simulated/' + this.weekToPlay).then(
+          response => {
+            debugger;
+            this.games = response.data;
+            //TODO updae ranking if the last game of the season
+            this.weekToPlay += 1;
+          });
+      }
     }
-  },
-  getGames(week, currentSeason){
-    console.log(week + ' ' + currentSeason);
-    HTTP_GAME.get('/search/findAllByWeekAndSeason?weekToPlay='+ week + '&season='+ currentSeason).then(
-            response => {
-                this.games = response.data._embedded.games;
-            }
-        )
-  },
-  simulate(){
-    if (this.week == this.weekToPlay){
-      HTTP_GAME.get('/simulated/' + this.weekToPlay).then(
-        response => {
-          debugger;
-          this.games = response.data;
-          //TODO updae ranking if the last game of the season
-          this.weekToPlay += 1;
-        });
-    }
-  }
   },
   
   mounted() {
