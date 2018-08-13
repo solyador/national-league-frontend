@@ -107,7 +107,7 @@ export default {
   },
   
   mounted() {
-        HTTP_SEASONS.get('/search/findCurrentSeason').then(
+        HTTP_SEASONS.get('/search/currentSeason').then(
             response => {
                 this.week = response.data.weekToPlay;
                 this.weekToPlay = response.data.weekToPlay;

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const HTTP_TEAMS = axios.create({
-  baseURL: "http://localhost:8083/teams?size=32"
+  baseURL: "http://localhost:3000/teams"
 });
 
 export const HTTP_GAME = axios.create({
